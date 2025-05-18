@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: "Quiz",
-    description: "Test your knowledge with interactive quizzes.",
+    description: "Test your knowledge with this fast paced quiz.",
     route: "/quiz",
   },
 ];
@@ -28,9 +28,9 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const [question, setQuestion] = useState("");
 
-  const handleAsk = () => {
-    // You can handle the question submission here or navigate
-    alert(`You asked: ${question}`);
+   const handleAsk = () => {
+    if (!question.trim()) return;
+    navigate("/ask", { state: { initialQuestion: question } });
     setQuestion("");
   };
 
