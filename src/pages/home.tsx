@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const features = [
   {
@@ -25,6 +26,13 @@ const features = [
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [question, setQuestion] = useState("");
+
+  const handleAsk = () => {
+    // You can handle the question submission here or navigate
+    alert(`You asked: ${question}`);
+    setQuestion("");
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8">
@@ -37,12 +45,30 @@ const Home: React.FC = () => {
           >
             <h2 className="text-2xl font-semibold mb-2">{feature.title}</h2>
             <p className="text-gray-600 mb-4 text-center">{feature.description}</p>
-            <button
-              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-              onClick={() => navigate(feature.route)}
-            >
-              Go
-            </button>
+            {feature.title === "Ask Chanakya" ? (
+              <div className="w-full flex flex-col items-center">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded px-4 py-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Type your question here..."
+                  value={question}
+                  onChange={(e) => setQuestion(e.target.value)}
+                />
+                <button
+                  className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full"
+                  onClick={handleAsk}
+                >
+                  Ask
+                </button>
+              </div>
+            ) : (
+              <button
+                className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                onClick={() => navigate(feature.route)}
+              >
+                Go
+              </button>
+            )}
           </div>
         ))}
       </div>
