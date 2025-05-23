@@ -1,5 +1,4 @@
 import React from 'react'
-
 // Import header specific styles
 import './../styles/header.css';
 

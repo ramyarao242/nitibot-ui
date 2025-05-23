@@ -20,7 +20,7 @@ const Ask: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="bg-white w-full max-w-md rounded shadow-lg flex flex-col h-[70vh]">
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
           {messages.map((msg, idx) => (
