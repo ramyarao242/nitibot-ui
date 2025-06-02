@@ -1,9 +1,20 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Ask: React.FC = () => {
-  const [messages, setMessages] = useState<{ from: "user" | "bot"; text: string }[]>([
-    { from: "bot", text: "Hello! Ask me anything about Chanakya's wisdom." }
-  ]);
+  const location = useLocation();
+  const initialQuestion = location.state?.initialQuestion as string | undefined;
+
+  const [messages, setMessages] = useState<{ from: "user" | "bot"; text: string }[]>(
+    initialQuestion
+      ? [
+          { from: "bot", text: "Hello! Ask me anything about Chanakya's wisdom." },
+          { from: "user", text: initialQuestion }
+        ]
+      : [
+          { from: "bot", text: "Hello! Ask me anything about Chanakya's wisdom." }
+        ]
+  );
   const [input, setInput] = useState("");
 
   const handleSend = () => {
@@ -20,7 +31,7 @@ const Ask: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white w-full max-w-md rounded shadow-lg flex flex-col h-[70vh]">
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
           {messages.map((msg, idx) => (

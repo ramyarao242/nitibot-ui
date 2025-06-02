@@ -1,10 +1,9 @@
 import React from 'react'
 // Import header specific styles
-import './../styles/header.css';
 
 const Header: React.FC = () => {
   return (
-    <header className="flex items-center shadow p-4 bg-level1-background">
+    <header className="flex items-center shadow p-4 bg-primary">
       <img
         src="/assets/chanakya.png"
         alt="Chanakya Logo"
