@@ -1,16 +1,29 @@
 import React from 'react'
+import { Box, Heading, Image } from "@chakra-ui/react";
+
 // Import header specific styles
 
 const Header: React.FC = () => {
   return (
-    <header className="flex items-center shadow p-4 bg-primary">
-      <img
+     <Box
+      as="header"
+      display="flex"
+      alignItems="center"
+      boxShadow="md"
+      p={4}
+      bg="background"
+    >
+      <Image
         src="/assets/chanakya.png"
         alt="Chanakya Logo"
-        className="h-10 w-10 mr-4"
+        h="40px"
+        w="40px"
+        mr={4}
       />
-      <h1 className="text-2xl font-bold text-gray-800">NEETIBOT</h1>
-    </header>
+      <Heading as="h1" size="lg" color="nitibotTitle">
+        NEETIBOT
+      </Heading>
+    </Box>
   )
 }
 
