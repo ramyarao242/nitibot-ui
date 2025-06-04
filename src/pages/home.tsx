@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react';
 
 const features = [
   {
@@ -26,53 +27,79 @@ const features = [
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [question, setQuestion] = useState("");
+  const [question, setQuestion] = useState('');
 
-   const handleAsk = () => {
+  const handleAsk = () => {
     if (!question.trim()) return;
     navigate("/ask", { state: { initialQuestion: question } });
     setQuestion("");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-gray-800">Welcome to NEETIBOT</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+    <Box
+      minH="100vh"
+      bg="background"
+      py={8}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Heading as="h1" size="xl" mb={8} color="nitibotTitle">
+        Welcome to NEETIBOT
+      </Heading>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full" maxW="4xl">
         {features.map((feature) => (
-          <div
+          <Box
             key={feature.title}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center"
+            bg="white"
+            borderRadius="lg"
+            boxShadow="md"
+            p={6}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
           >
-            <h2 className="text-2xl font-semibold mb-2">{feature.title}</h2>
-            <p className="text-gray-600 mb-4 text-center">{feature.description}</p>
+            <Heading as="h2" size="md" mb={2} color="nitibotTitle">
+              {feature.title}
+            </Heading>
+            <Text color="text" mb={4} textAlign="center">
+              {feature.description}
+            </Text>
             {feature.title === "Ask Chanakya" ? (
-              <div className="w-full flex flex-col items-center">
-                <input
-                  type="text"
-                  className="border border-gray-300 rounded px-4 py-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              <Box w="full" display="flex" flexDirection="column" alignItems="center">
+                <Input
                   placeholder="Type your question here..."
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
+                  mb={2}
+                  bg="background2"
+                  color="text2"
                 />
-                <button
-                  className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full"
+                <Button
+                  w="full"
+                  bg="buttonBackground"
+                  color="buttonText"
+                  _hover={{ bg: "buttonBackground2" }}
                   onClick={handleAsk}
                 >
                   Ask
-                </button>
-              </div>
+                </Button>
+              </Box>
             ) : (
-              <button
-                className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              <Button
+                bg="buttonBackground"
+                color="buttonText"
+                _hover={{ bg: "buttonBackground2" }}
                 onClick={() => navigate(feature.route)}
               >
                 Go
-              </button>
+              </Button>
             )}
-          </div>
+          </Box>
         ))}
-      </div>
-    </div>
+      </SimpleGrid>
+    </Box>
   );
 };
 

@@ -1,13 +1,21 @@
-import React from 'react'
+import { Box, Text } from "@chakra-ui/react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-gray-100 text-center py-4 mt-auto shadow-inner">
-      <span className="text-gray-600 text-sm">
+    <Box
+      as="footer"
+      w="full"
+      bg="background"
+      textAlign="center"
+      py={4}
+      mt="auto"
+      boxShadow="inner"
+    >
+      <Text color="text" fontSize="sm">
         © Nalanda 2025
-      </span>
-    </footer>
-  )
-}
+      </Text>
+    </Box>
+  );
+};
 
-export default Footer
+export default Footer;

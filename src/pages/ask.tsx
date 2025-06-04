@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Box, Input, Button, Text, VStack, HStack } from "@chakra-ui/react";
 
 const Ask: React.FC = () => {
   const location = useLocation();
@@ -31,44 +32,66 @@ const Ask: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white w-full max-w-md rounded shadow-lg flex flex-col h-[70vh]">
-        <div className="flex-1 overflow-y-auto p-4 space-y-2">
+    <Box
+      minH="100vh"
+      bg="background"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      py={8}
+    >
+      <Box
+        bg="white"
+        w="full"
+        maxW="md"
+        rounded="lg"
+        shadow="lg"
+        display="flex"
+        flexDirection="column"
+        h="70vh"
+      >
+        <VStack flex="1" overflowY="auto" p={4} spacing={3} align="stretch">
           {messages.map((msg, idx) => (
-            <div
+            <HStack
               key={idx}
-              className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
+              justify={msg.from === "user" ? "flex-end" : "flex-start"}
             >
-              <div
-                className={`px-4 py-2 rounded-lg max-w-xs ${
-                  msg.from === "user"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-800"
-                }`}
+              <Box
+                px={4}
+                py={2}
+                borderRadius="lg"
+                maxW="70%"
+                bg={msg.from === "user" ? "buttonBackground" : "background2"}
+                color={msg.from === "user" ? "buttonText" : "text2"}
+                alignSelf={msg.from === "user" ? "flex-end" : "flex-start"}
               >
-                {msg.text}
-              </div>
-            </div>
+                <Text>{msg.text}</Text>
+              </Box>
+            </HStack>
           ))}
-        </div>
-        <div className="p-4 border-t flex">
-          <input
-            className="flex-1 border rounded-l px-3 py-2 focus:outline-none"
-            type="text"
+        </VStack>
+        <HStack p={4} borderTop="1px" borderColor="gray.200" spacing={2}>
+          <Input
+            flex="1"
             placeholder="Type your question..."
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === "Enter" && handleSend()}
+            bg="background2"
+            color="text2"
           />
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-r hover:bg-blue-700"
+          <Button
+            colorScheme="yellow"
+            bg="buttonBackground"
+            color="buttonText"
+            _hover={{ bg: "buttonBackground2" }}
             onClick={handleSend}
           >
             Send
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </HStack>
+      </Box>
+    </Box>
   );
 };
 
