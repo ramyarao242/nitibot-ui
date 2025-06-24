@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         mr={4}
       />
       <Heading as="h1" size="lg" color="nitibotTitle">
-        NEETIBOT
+        WELCOME TO NEETIBOT
       </Heading>
     </Box>
   )

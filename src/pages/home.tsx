@@ -45,9 +45,7 @@ const Home: React.FC = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Heading as="h1" size="xl" mb={8} color="nitibotTitle">
-        Welcome to NEETIBOT
-      </Heading>
+    
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full" maxW="4xl">
         {features.map((feature) => (
           <Box

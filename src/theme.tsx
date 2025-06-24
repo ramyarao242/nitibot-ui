@@ -3,11 +3,11 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   colors: {
-    background: "#FDF6E3",
+    background: "#F1C232",
     nitibotTitle: "#8B5E3C",
-    text: "#8B5E3C",
-    buttonBackground: "#FDF6E3",
-    buttonText: "#8B5E3C",
+    text: "#000000",
+    buttonBackground: "#F9E79F",
+    buttonText: "#2C2C2C",
 
     background2: "#F5E8C7",
     nitibotTitle2: "#8B5E3C",
@@ -27,9 +27,9 @@ const theme = extendTheme({
     buttonBackground4: "#000000",
     buttonText4: "#FFD700",
 
-    background5: "#FFD700",
-    nitibotTitle5: "#8B5E3C",
-    text5: "#8B5E3C",
+    background5: "#F9E79F",
+    nitibotTitle5: "#2C2C2C",
+    text5: "#00000",
     buttonBackground5: "#FFD700",
     buttonText5: "#8B5E3C",
   },

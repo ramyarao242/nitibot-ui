@@ -20,7 +20,7 @@ function App() {
   return(
     <>
     <Header />
-    <div className='container mx-auto flex-1'>
+    <div className='app-container'>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/ask" element={<Ask/>} />
