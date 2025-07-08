@@ -13,7 +13,7 @@ const Ask: React.FC = () => {
           { from: "user", text: initialQuestion }
         ]
       : [
-          { from: "bot", text: "Hello! Ask me anything about Chanakya's wisdom." }
+          { from: "bot", text: "Hello! Ask me qn 2" }
         ]
   );
   const [input, setInput] = useState("");
