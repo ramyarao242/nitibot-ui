@@ -1,6 +1,6 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 
-const Quiz: React.FC = () => {
+const Quiz = () => {
   return (
     <Box
       minH="100vh"

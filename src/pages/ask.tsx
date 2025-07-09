@@ -18,17 +18,31 @@ const Ask: React.FC = () => {
   );
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
     setMessages([...messages, { from: "user", text: input }]);
-    // Simulate bot reply (replace with real logic or API call)
-    setTimeout(() => {
-      setMessages(msgs => [
-        ...msgs,
-        { from: "bot", text: "This is a sample answer from Chanakya Bot." }
-      ]);
-    }, 800);
     setInput("");
+
+     try {
+    // Replace with your actual API endpoint and request details
+    const url = `https://nitibot-backend.onrender.com/ask-chanakya?question=${encodeURIComponent(input)}`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    });
+    const data = await response.json();
+
+    // Assuming the API returns { answer: "..." }
+    setMessages(msgs => [
+      ...msgs,
+      { from: "bot", text: data.answer || "Sorry, I couldn't get an answer." }
+    ]);
+  } catch (error) {
+    setMessages(msgs => [
+      ...msgs,
+      { from: "bot", text: "There was an error contacting the server." }
+    ]);
+  } 
   };
 
   return (
