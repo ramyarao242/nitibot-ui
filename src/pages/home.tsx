@@ -14,9 +14,9 @@ const features = [
     route: "/challenge",
   },
   {
-    title: "Chanakya Chronicles",
-    description: "Read stories and lessons from the life of Chanakya.",
-    route: "/chronicles",
+    title: "Chanakya Verses Library",
+    description: "Read all verses and lessons from Chanakya Neeti.",
+    route: "/library",
   },
   {
     title: "Quiz",
