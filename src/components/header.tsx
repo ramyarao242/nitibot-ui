@@ -5,28 +5,6 @@ import { Box, Heading, Image, Button } from "@chakra-ui/react";
 // Import header specific styles
 
 const Header: React.FC = () => {
-  const features = [
-  {
-    title: "Ask Chanakya",
-    description: "Ask any question and get wisdom from Chanakya.",
-    route: "/ask",
-  },
-  {
-    title: "Daily Challenge",
-    description: "Take on a new challenge every day to sharpen your mind.",
-    route: "/challenge",
-  },
-  {
-    title: "Chanakya Verses Library",
-    description: "Read all verses and lessons from Chanakya Neeti.",
-    route: "/library",
-  },
-  {
-    title: "Quiz",
-    description: "Test your knowledge with this fast paced quiz.",
-    route: "/quiz",
-  },
-];
 
 const navigate = useNavigate();
 
