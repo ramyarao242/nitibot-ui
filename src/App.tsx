@@ -9,6 +9,8 @@ import Quiz from './pages/quiz'
 import Chronicles from './pages/chronicles'
 import Home from './pages/home'
 import Library from './pages/library'
+import theme from './theme'
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   useEffect(()=>{
@@ -19,7 +21,7 @@ function App() {
     // }
   },[])
   return(
-    <>
+    <ChakraProvider theme={theme}>
     <Header />
     <div className='app-container'>
       <Routes>
@@ -32,7 +34,7 @@ function App() {
         </Routes>
       </div>
     <Footer />
-    </>
+    </ChakraProvider>
   )
 }
 

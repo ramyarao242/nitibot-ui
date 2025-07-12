@@ -4,14 +4,19 @@ import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react'
 
 const features = [
   {
-    title: "Ask Chanakya",
-    description: "Ask any question and get wisdom from Chanakya.",
-    route: "/ask",
+    title: "Chanakya Neeti for the day",
+    description: "Take on a new challenge every day to sharpen your mind.",
+    route: "/challenge",
   },
   {
     title: "Daily Challenge",
     description: "Take on a new challenge every day to sharpen your mind.",
     route: "/challenge",
+  },
+  {
+    title: "Ask Chanakya",
+    description: "Ask any question and get wisdom from Chanakya.",
+    route: "/ask",
   },
   {
     title: "Chanakya Verses Library",
@@ -22,6 +27,11 @@ const features = [
     title: "Quiz",
     description: "Test your knowledge with this fast paced quiz.",
     route: "/quiz",
+  },
+  {
+    title: "Chanakya Chronicles",
+    description: "Explore the life and teachings of Chanakya.",
+    route: "/chronicles",
   },
 ];
 
@@ -38,34 +48,32 @@ const Home: React.FC = () => {
   return (
     <Box
       minH="100vh"
-      bg="background"
       py={8}
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
     >
     
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full" maxW="4xl">
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full" maxW="80%">
         {features.map((feature) => (
-          <Box
+          <Text as ="div"
+          className='transparent-btn'
             key={feature.title}
-            bg="white"
-            borderRadius="lg"
-            boxShadow="md"
-            p={6}
+            p={10}
             display="flex"
             flexDirection="column"
             alignItems="center"
           >
-            <Heading as="h2" size="md" mb={2} color="nitibotTitle">
+            <Heading as="h2" size="md" mb={2} color="nitibotTitle6"  textShadow="0px 0px 10px #b48f20ff"
+            letterSpacing="wider"
+            fontWeight="normal">
               {feature.title}
             </Heading>
-            <Text color="text" mb={4} textAlign="center">
+            <Text color="white" mb={4} textAlign="center">
               {feature.description}
             </Text>
             {feature.title === "Ask Chanakya" ? (
-              <Box w="full" display="flex" flexDirection="column" alignItems="center">
+              <Box w="full" display="flex" flexDirection="column" alignItems="center"  bg="background">
                 <Input
                   placeholder="Type your question here..."
                   value={question}
@@ -94,7 +102,7 @@ const Home: React.FC = () => {
                 Go
               </Button>
             )}
-          </Box>
+          </Text>
         ))}
       </SimpleGrid>
     </Box>

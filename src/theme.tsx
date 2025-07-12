@@ -1,14 +1,22 @@
 // import { extend } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import { degrees } from "framer-motion";
+import { linearGradient, text } from "framer-motion/client";
 
 const theme = extendTheme({
   colors: {
-    background: "#F1C232",
-    nitibotTitle: "#8B5E3C",
+    background: "linear-gradient(to bottom, #000000, #FFD700)",
+        nitibotTitle: "#8B5E3C",
     text: "#000000",
     buttonBackground: "#F9E79F",
     buttonText: "#2C2C2C",
 
+    background6: "#1a1529",
+    nitibotTitle6: "#ffd900ff",
+    text6: "#F8F1EF",
+    buttonBackground6: "#C89B2B",
+    buttonText6: "#1a1529",
+    glow6: "#eccc6bff",
     background2: "#F5E8C7",
     nitibotTitle2: "#8B5E3C",
     text2: "#8B5E3C",
@@ -32,6 +40,8 @@ const theme = extendTheme({
     text5: "#00000",
     buttonBackground5: "#FFD700",
     buttonText5: "#8B5E3C",
+
+
   },
 });
 

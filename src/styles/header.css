@@ -1,5 +1,18 @@
-header {
-    padding: 1rem; /* Example padding */
-    margin-bottom: 1rem; /* Example margin */
-    /* Add any other desired default header styling */
+.transparent-btn {
+margin-left: 1rem !important;
+background: rgba(255,255,255,0.2) !important;
+color: #e9e8d5ff !important;
+padding: 0.5rem 1.5rem !important;
+border-radius: 0.5rem !important;
+border: 1px solid rgba(255,255,255,0.2) !important;
+font-weight: 300 !important;
+letter-spacing: 2px !important;
+backdrop-filter: blur(10px) !important;
+transition: background 0.2s !important;
+}
+
+.transparent-btn:hover {
+  background: rgba(255,255,255,0.5) !important;
+  border:#e9e8d5ff 1px solid !important;
+  backdrop-filter: blur(10px) !important;
 }
