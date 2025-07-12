@@ -5,11 +5,11 @@ import { linearGradient, text } from "framer-motion/client";
 
 const theme = extendTheme({
   colors: {
-    background: "linear-gradient(to bottom, #000000, #FFD700)",
-        nitibotTitle: "#8B5E3C",
-    text: "#000000",
-    buttonBackground: "#F9E79F",
-    buttonText: "#2C2C2C",
+    buttonText: "#ffffff",
+    buttonTextShadow: "0px 0px 6px #f5c944",
+    inputText: "#cfc6a5",
+    subtitle: "#d9c98a",
+    title: "#f5e7b8",
 
     background6: "#1a1529",
     nitibotTitle6: "#ffd900ff",

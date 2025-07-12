@@ -4,15 +4,38 @@ background: rgba(255,255,255,0.2) !important;
 color: #e9e8d5ff !important;
 padding: 0.5rem 1.5rem !important;
 border-radius: 0.5rem !important;
-border: 1px solid rgba(255,255,255,0.2) !important;
+border: 1px solid rgba(255,215,0,0.4) !important;
 font-weight: 300 !important;
 letter-spacing: 2px !important;
 backdrop-filter: blur(10px) !important;
-transition: background 0.2s !important;
+transition: all 0.3s ease-in-out !important;
+box-shadow: 0 0 12px rgba(255,215,0,0.2), 0 0 24px rgba(255,215,0,0.1) !important;
 }
 
 .transparent-btn:hover {
-  background: rgba(255,255,255,0.5) !important;
+   background: rgba(255,255,255,0.3) !important;
   border:#e9e8d5ff 1px solid !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important; 
+  box-shadow: (0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2)) !important;
+  transform: translateY(-5px) !important;
+}
+
+.neetibot-title{
+    font-family: 'Cinzel', serif !important;
+    font-size: 3rem !important;
+    letter-spacing: 0.1rem !important;
+    text-shadow: 0px 0px 10px #ffd700 !important;
+    color: #ffd700 !important;
+}
+
+.action-btn{
+    background: rgba(0,0,0,0.5) !important;
+    color: #fff !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255,215,0,0.4) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    letter-spacing: 1px !important;
+    transition: all 0.3s ease-in-out !important;
 }

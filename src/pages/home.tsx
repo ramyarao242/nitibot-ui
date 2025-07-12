@@ -64,12 +64,10 @@ const Home: React.FC = () => {
             flexDirection="column"
             alignItems="center"
           >
-            <Heading as="h2" size="md" mb={2} color="nitibotTitle6"  textShadow="0px 0px 10px #b48f20ff"
-            letterSpacing="wider"
-            fontWeight="normal">
+            <Heading as="h2" size="md" mb={2} color="title" fontWeight={"normal"}>
               {feature.title}
             </Heading>
-            <Text color="white" mb={4} textAlign="center">
+            <Text color="subtitle" mb={4} textAlign="center">
               {feature.description}
             </Text>
             {feature.title === "Ask Chanakya" ? (
@@ -83,10 +81,8 @@ const Home: React.FC = () => {
                   color="text2"
                 />
                 <Button
-                  w="full"
-                  bg="buttonBackground"
-                  color="buttonText"
-                  _hover={{ bg: "buttonBackground2" }}
+                  className='action-btn'
+                  w={"full"}
                   onClick={handleAsk}
                 >
                   Ask
@@ -94,9 +90,7 @@ const Home: React.FC = () => {
               </Box>
             ) : (
               <Button
-                bg="buttonBackground"
-                color="buttonText"
-                _hover={{ bg: "buttonBackground2" }}
+                className='action-btn'
                 onClick={() => navigate(feature.route)}
               >
                 Go

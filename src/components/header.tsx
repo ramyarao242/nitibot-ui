@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Heading, Image, Button, Flex, Text, border } from "@chakra-ui/react";
+import { Box, Heading, Image, Button, Flex, Text, border, AlertIcon } from "@chakra-ui/react";
 // import { color } from 'framer-motion';
 import '../styles/header.css'; // Import header specific styles
 import { div, style } from 'framer-motion/client';
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
       boxShadow="md"
       p={4}
     >
-      <Flex align="center">
+      <Flex align="center" justify="center" maxW="100%" mx="auto" w="full">
         <Image
           src="/assets/chanakya.png"
           alt="Chanakya Logo"
@@ -28,22 +28,20 @@ const Header: React.FC = () => {
         />
         <Box>
           <Heading
+            className="neetibot-title"
             as="h1"
-            size="lg"
-            color="nitibotTitle6"
-            textShadow="0px 0px 10px #b48f20ff"
-            letterSpacing="wider"
-            fontWeight="normal"
+            align="center"
           >
             NEETIBOT
           </Heading>
-          <Text color="white" textShadow="0px 0px 10px #f5f110ff" marginBottom="20px" fontSize="md" fontWeight="light">
+          <Text color="white" textShadow="0px 0px 10px #b48f20ff" marginBottom="20px" fontSize="md" fontWeight="light">
             Explore the timeless wisdom of Chanakya.
           </Text>
         </Box>
       </Flex>
 
-      <div className="header-buttons" style={{ display: 'flex', gap: '10px', marginLeft: '40px' }}  >
+      <div className="header-buttons" style={{ display: 'flex', gap: '10px', marginLeft: '40px', justifyContent: 'center' }}  >
+      <Button className="transparent-btn" onClick={() => navigate("/")}>Home</Button>
         <Button className="transparent-btn" onClick={() => navigate("/ask")}>Ask Chanakya</Button>
         <Button className="transparent-btn" onClick={() => navigate("/library")}>Explore Library</Button>
         <Button className="transparent-btn" onClick={() => navigate("/quiz")}>Quiz</Button>
