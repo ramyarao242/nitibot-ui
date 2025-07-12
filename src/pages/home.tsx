@@ -77,8 +77,7 @@ const Home: React.FC = () => {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   mb={2}
-                  bg="background2"
-                  color="text2"
+                  className='action-btn'
                 />
                 <Button
                   className='action-btn'
