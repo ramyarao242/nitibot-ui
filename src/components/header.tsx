@@ -1,11 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Heading, Image, Button, Flex, Text, border, AlertIcon } from "@chakra-ui/react";
-// import { color } from 'framer-motion';
+import { Box, Heading, Image, Button, Flex, Text } from "@chakra-ui/react";
 import '../styles/header.css'; // Import header specific styles
-import { div, style } from 'framer-motion/client';
-
-// Import header specific styles
 
 const Header: React.FC = () => {
 
@@ -30,7 +26,7 @@ const Header: React.FC = () => {
           <Heading
             className="neetibot-title"
             as="h1"
-            align="center"
+            textAlign="center"
           >
             NEETIBOT
           </Heading>

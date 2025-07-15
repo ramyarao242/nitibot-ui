@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react';
+import { a } from 'framer-motion/client';
 
 const features = [
   {
@@ -39,9 +40,31 @@ const features = [
   },
 ];
 
+interface NeetiVerse{
+   "date": string;
+   "chapter": string;
+   "verse": string;
+   "sanskrit": string;
+   "translation": string;
+   "tag": string;
+}
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [question, setQuestion] = useState('');
+  const [neetiVerse, setNeetiVerse] = useState<NeetiVerse | null>(null);
+
+  useEffect(() => {
+    // Fetch the Neeti verse for the day
+    const fetchNeetiVerse = async () => {
+      const response = await fetch('https://nitibot-backend.onrender.com/neeti-of-the-day');
+      const data = await response.json();
+      setNeetiVerse(data);
+      console.log("neetiVerse",data);
+    };
+
+    fetchNeetiVerse();
+  }, []);
 
   const handleAsk = () => {
     if (!question.trim()) return;
@@ -60,8 +83,9 @@ const Home: React.FC = () => {
     
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full" maxW="80%">
         {features.map((feature) => (
-          <Text as ="div"
-          className='transparent-btn'
+          <Text
+            as="div"
+            className="transparent-btn"
             key={feature.title}
             p={10}
             display="flex"
@@ -76,23 +100,23 @@ const Home: React.FC = () => {
             </Text>
             {feature.actionBtn && (
               <Button
-                className='action-btn'
-                onClick={() => navigate(feature.route)}
+                className="action-btn"
+                onClick={() => feature.route && navigate(feature.route)}
               >
                 Go
               </Button>
             )}
             {feature.title === "Ask Chanakya" ? (
-              <Box w="full" display="flex" flexDirection="column" alignItems="center"  bg="background">
+              <Box w="full" display="flex" flexDirection="column" alignItems="center" bg="background">
                 <Input
                   placeholder="Type your question here..."
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   mb={2}
-                  className='action-btn'
+                  className="action-btn"
                 />
                 <Button
-                  className='action-btn'
+                  className="action-btn"
                   w={"full"}
                   onClick={handleAsk}
                 >
@@ -101,10 +125,18 @@ const Home: React.FC = () => {
               </Box>
             ) : null}
             {feature.title === "Chanakya Neeti for the day" && (
-              <Box w="full" display="flex" flexDirection="column" alignItems="center"  >
-                <Text color="subtitle" textAlign="center">
-                  "The world's biggest power is the youth and beauty of a woman."
-                </Text>
+              <Box w="full" display="flex" flexDirection="column" alignItems="center">
+                <Box color="subtitle" textAlign="center">
+                  {neetiVerse ? (
+                    <>
+                      <Box fontWeight="bold">{neetiVerse.chapter} - {neetiVerse.verse}</Box>
+                      <Box>{neetiVerse.sanskrit}</Box>
+                      <Box>{neetiVerse.translation}</Box>
+                    </>
+                  ) : (
+                    <Box>Loading Neeti verse...</Box>
+                  )}
+                </Box>
               </Box>
             )}
           </Text>
