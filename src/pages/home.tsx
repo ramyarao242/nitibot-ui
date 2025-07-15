@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react';
+import { m } from 'framer-motion';
 
 const features = [
   {
@@ -124,13 +125,13 @@ const Home: React.FC = () => {
               </Box>
             ) : null}
             {feature.title === "Chanakya Neeti for the day" && (
-              <Box w="full" display="flex" flexDirection="column" alignItems="center">
+              <Box w="full" display="flex" flexDirection="column" alignItems="center" mb="4">
                 <Box color="subtitle" textAlign="center">
                   {neetiVerse ? (
                     <>
-                      <Box fontWeight="bold">{neetiVerse.chapter} - {neetiVerse.verse}</Box>
-                      <Box>{neetiVerse.sanskrit}</Box>
-                      <Box>{neetiVerse.translation}</Box>
+                      <Box fontWeight="bold" mb="4">Chapter {neetiVerse.chapter} - Verse {neetiVerse.verse}</Box>
+                      <Box mb="4">{neetiVerse.sanskrit}</Box>
+                      <Box mb="4">{neetiVerse.translation}</Box>
                     </>
                   ) : (
                     <Box>Loading Neeti verse...</Box>
