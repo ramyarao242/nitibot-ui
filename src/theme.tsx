@@ -1,7 +1,4 @@
-// import { extend } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import { linearGradient, text } from "framer-motion/client";
-
 const theme = extendTheme({
   colors: {
     buttonText: "#ffffff",
