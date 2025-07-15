@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react';
-import { a } from 'framer-motion/client';
 
 const features = [
   {
