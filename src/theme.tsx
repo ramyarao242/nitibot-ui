@@ -1,6 +1,5 @@
 // import { extend } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import { degrees } from "framer-motion";
 import { linearGradient, text } from "framer-motion/client";
 
 const theme = extendTheme({
