@@ -58,7 +58,6 @@ interface NeetiVerse{
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [question, setQuestion] = useState('');
   const [neetiVerse, setNeetiVerse] = useState<NeetiVerse | null>(null);
 
   useEffect(() => {
