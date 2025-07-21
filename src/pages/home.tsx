@@ -1,42 +1,49 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Box, Button, Heading, Input, Text, SimpleGrid } from '@chakra-ui/react';
-import { m } from 'framer-motion';
+import { Box, Button, Heading, Text, SimpleGrid } from '@chakra-ui/react';
+import {FaEnvelope} from 'react-icons/fa';
 
 const features = [
   {
     title: "Chanakya Neeti for the day",
     description: "",
     actionBtn: false,
-  },
-  {
-    title: "Daily Challenge",
-    description: "Take on a new challenge every day to sharpen your mind.",
-    actionBtn: false,
+    lock:false
   },
   {
     title: "Ask Chanakya",
     description: "Ask any question and get wisdom from Chanakya.",
     route: "/ask",
-    actionBtn: false,
+   actionBtn: true,
+   lock: false
+  },
+  {
+    title: "Daily Challenge",
+    description: "Take on a new challenge every day to sharpen your mind.",
+     route: "/challenge",
+   actionBtn: true,
+   lock: true
   },
   {
     title: "Chanakya Verses Library",
     description: "Read all verses and lessons from Chanakya Neeti.",
     route: "/library",
     actionBtn: true,
+    lock: true
   },
   {
     title: "Quiz",
     description: "Test your knowledge with this fast paced quiz.",
     route: "/quiz",
     actionBtn: true,
+    lock: true
   },
   {
     title: "Chanakya Chronicles",
     description: "Explore the life and teachings of Chanakya.",
     route: "/chronicles",
     actionBtn: true,
+    lock: true
   },
 ];
 
@@ -66,11 +73,11 @@ const Home: React.FC = () => {
     fetchNeetiVerse();
   }, []);
 
-  const handleAsk = () => {
-    if (!question.trim()) return;
-    navigate("/ask", { state: { initialQuestion: question } });
-    setQuestion("");
-  };
+  // const handleAsk = () => {
+  //   if (!question.trim()) return;
+  //   navigate("/ask", { state: { initialQuestion: question } });
+  //   setQuestion("");
+  // };
 
   return (
     <Box
@@ -98,7 +105,7 @@ const Home: React.FC = () => {
             <Text color="subtitle" mb={4} textAlign="center">
               {feature.description}
             </Text>
-            {feature.actionBtn && (
+            {feature.actionBtn && !feature.lock && (
               <Button
                 className="action-btn"
                 onClick={() => feature.route && navigate(feature.route)}
@@ -106,24 +113,36 @@ const Home: React.FC = () => {
                 Go
               </Button>
             )}
-            {feature.title === "Ask Chanakya" ? (
-              <Box w="full" display="flex" flexDirection="column" alignItems="center" bg="background">
-                <Input
-                  placeholder="Type your question here..."
-                  value={question}
-                  onChange={(e) => setQuestion(e.target.value)}
-                  mb={2}
-                  className="action-btn"
-                />
-                <Button
-                  className="action-btn"
-                  w={"full"}
-                  onClick={handleAsk}
-                >
-                  Ask
-                </Button>
-              </Box>
-            ) : null}
+            {feature.lock && (
+              <Button 
+              leftIcon={<FaEnvelope />}
+              colorScheme='red'
+              variant={"solid"}
+              className="action-btn" 
+              onClick={() => {
+                const email = prompt("Please enter your email to get notified when this feature is available:");
+                if (email) {
+                  // Here you would typically send the email to your backend or a service
+                  fetch('https://nitibot-backend.onrender.com/notify', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, feature: feature.title })
+                  }).then(() => {
+                    alert(`Thank you! We'll notify you at ${email} when this feature is available.`);
+                  }).catch(() => {
+                    alert("There was an error sending your email. Please try again later.");
+                  });
+                } else {
+                  alert("Please enter a valid email address.");
+                }
+
+              }}>
+                Notify me
+              </Button>
+            )}
+            
             {feature.title === "Chanakya Neeti for the day" && (
               <Box w="full" display="flex" flexDirection="column" alignItems="center" mb="4">
                 <Box color="subtitle" textAlign="center">

@@ -48,14 +48,14 @@ const Ask: React.FC = () => {
   return (
     <Box
       minH="100vh"
-      bg="background"
+    
       display="flex"
       alignItems="center"
       justifyContent="center"
       py={8}
     >
       <Box
-        bg="white"
+       
         w="full"
         maxW="md"
         rounded="lg"
@@ -75,7 +75,7 @@ const Ask: React.FC = () => {
                 py={2}
                 borderRadius="lg"
                 maxW="70%"
-                bg={msg.from === "user" ? "buttonBackground" : "background2"}
+                bg={msg.from === "user" ? "background2" : "background2"}
                 color={msg.from === "user" ? "buttonText" : "text2"}
                 alignSelf={msg.from === "user" ? "flex-end" : "flex-start"}
               >
@@ -96,7 +96,7 @@ const Ask: React.FC = () => {
           />
           <Button
             colorScheme="yellow"
-            bg="buttonBackground"
+            bg="background2"
             color="buttonText"
             _hover={{ bg: "buttonBackground2" }}
             onClick={handleSend}
