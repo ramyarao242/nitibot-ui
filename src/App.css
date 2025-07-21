@@ -1,6 +1,6 @@
 #root {
   width: 100%;
-  background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 50%,#b97e00 80%,#ffd700 100%);
+  background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 100%,#b97e00 100%);
 }
 
 .app-container{
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh; */
-  background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 50%,#b97e00 80%,#ffd700 100%);
+  background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 100%,#b97e00 100%);
 }
 
 .logo {
