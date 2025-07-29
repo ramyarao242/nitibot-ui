@@ -13,7 +13,7 @@ const Ask: React.FC = () => {
           { from: "user", text: initialQuestion }
         ]
       : [
-          { from: "bot", text: "Hello! Ask me qn 2" }
+          { from: "bot", text: "Whisper your career dilemma. I will find you sharpest Chankya verse to guide you." }
         ]
   );
   const [input, setInput] = useState("");
@@ -75,8 +75,8 @@ const Ask: React.FC = () => {
                 py={2}
                 borderRadius="lg"
                 maxW="70%"
-                bg={msg.from === "user" ? "background2" : "background2"}
-                color={msg.from === "user" ? "buttonText" : "text2"}
+                bg={msg.from === "user" ? "text6" : "background2"}
+                color={msg.from === "user" ? "background6" : "text2"}
                 alignSelf={msg.from === "user" ? "flex-end" : "flex-start"}
               >
                 <Text>{msg.text}</Text>
@@ -96,7 +96,7 @@ const Ask: React.FC = () => {
           />
           <Button
             colorScheme="yellow"
-            bg="background2"
+            bg="buttonBackground6"
             color="buttonText"
             _hover={{ bg: "buttonBackground2" }}
             onClick={handleSend}

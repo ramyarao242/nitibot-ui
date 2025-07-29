@@ -31,7 +31,7 @@ const Header: React.FC = () => {
             NEETIBOT
           </Heading>
           <Text color="white" textShadow="0px 0px 10px #b48f20ff" marginBottom="20px" fontSize="md" fontWeight="light">
-            Explore the timeless wisdom of Chanakya.
+            Outsmart the office. Think like Chanakya. Rise like a leader.
           </Text>
         </Box>
       </Flex>
@@ -43,18 +43,20 @@ home
         <Button className="transparent-btn" onClick={() => navigate("/ask")}> <span className="material-symbols-outlined">
 forum
 </span>Ask Chanakya</Button>
-        <Button className="transparent-btn" onClick={() => navigate("/library")}><span className="material-symbols-outlined">
-book_2
-</span> Explore Library</Button>
-        <Button className="transparent-btn" onClick={() => navigate("/quiz")}><span className="material-symbols-outlined">
-quiz
-</span>Quiz</Button>
-        <Button className="transparent-btn" onClick={() => navigate("/chronicles")}><span className="material-symbols-outlined">
-auto_stories
-</span>Chanakya Chronicles</Button>
       </div>
     </Box>
     )
 }
 
 export default Header
+
+
+//         <Button className="transparent-btn" onClick={() => navigate("/library")}><span className="material-symbols-outlined">
+// book_2
+// </span> Explore Library</Button>
+//         <Button className="transparent-btn" onClick={() => navigate("/quiz")}><span className="material-symbols-outlined">
+// quiz
+// </span>Quiz</Button>
+//         <Button className="transparent-btn" onClick={() => navigate("/chronicles")}><span className="material-symbols-outlined">
+// auto_stories
+// </span>Chanakya Chronicles</Button>
