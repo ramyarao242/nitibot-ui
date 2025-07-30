@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/header'
-import Footer from './components/Footer'
+import Footer from './components/footer'
 import Challenge from './pages/challenge'
 import Ask from './pages/ask'
 import Quiz from './pages/quiz'
