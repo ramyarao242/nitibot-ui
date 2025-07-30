@@ -37,15 +37,23 @@ const Ask: React.FC = () => {
     if (data.answer) {
       const stringAnswer = data.answer;
       const answer = JSON.parse(stringAnswer);
-      setMessages(msgs => [
-        ...msgs,
-        { from: "bot", text: answer["chapter number"] },
-        { from: "bot", text: answer["verse number"] },
-        { from: "bot", text: answer["sanskrit"] },
-        { from: "bot", text: answer["translation"] },
-        { from: "bot", text: answer["interpretation"] }
-      ]);
-    } else{
+        if(answer["chapter number"] && answer["verse number"] && answer["sanskrit"] && answer["translation"] && answer["interpretation"]) {
+        setMessages(msgs => [
+          ...msgs,
+          { from: "bot", text: answer["chapter number"] },
+          { from: "bot", text: answer["verse number"] },
+          { from: "bot", text: answer["sanskrit"] },
+          { from: "bot", text: answer["translation"] },
+          { from: "bot", text: answer["interpretation"] }
+        ]);
+      } else{
+        setMessages(msgs => [
+          ...msgs,
+          { from: "bot", text: JSON.parse(answer) || data.answer}
+        ]);
+      }
+  }
+    else{
       setMessages(msgs => [
         ...msgs,
         { from: "bot", text: "Sorry, I couldn't find an answer for that." }
