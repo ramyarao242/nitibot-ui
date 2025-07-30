@@ -35,8 +35,7 @@ const Ask: React.FC = () => {
     // Assuming the API returns { answer: "..." }
 
     if (data.answer) {
-      const stringAnswer = data.answer;
-      const answer = JSON.parse(stringAnswer);
+      const answer = data.answer;
         if(answer["chapter number"] && answer["verse number"] && answer["sanskrit"] && answer["translation"] && answer["interpretation"]) {
         setMessages(msgs => [
           ...msgs,
@@ -49,7 +48,7 @@ const Ask: React.FC = () => {
       } else{
         setMessages(msgs => [
           ...msgs,
-          { from: "bot", text: JSON.parse(answer) || data.answer}
+          { from: "bot", text: JSON.stringify(data.answer) }
         ]);
       }
   }
