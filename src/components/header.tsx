@@ -41,7 +41,7 @@ const Header: React.FC = () => {
       justifyContent={"center"}
     >
       <Text color="white" textShadow="0px 0px 10px #b48f20ff" margin="auto" fontSize="md" fontWeight="light">
-            Outsmart the office. Think like Chanakya. Rise like a leader.
+            Think like Chanakya. Rise like a leader.
       </Text>
       
 </Box>
