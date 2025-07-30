@@ -39,11 +39,11 @@ const Ask: React.FC = () => {
         if(answer["chapter number"] && answer["verse number"] && answer["sanskrit"] && answer["translation"] && answer["interpretation"]) {
         setMessages(msgs => [
           ...msgs,
-          { from: "bot", text: answer["chapter number"] },
-          { from: "bot", text: answer["verse number"] },
-          { from: "bot", text: answer["sanskrit"] },
-          { from: "bot", text: answer["translation"] },
-          { from: "bot", text: answer["interpretation"] }
+          { from: "bot", text: ` Chapter ${" "} : ${" "} ${answer["chapter number"]}` },
+          { from: "bot", text: ` Verse ${" "} : ${" "} ${answer["verse number"]}` },
+          { from: "bot", text: ` Sanskrit ${" "} : ${" "} ${answer["sanskrit"]}` },
+          { from: "bot", text: ` Translation ${" "} : ${" "} ${answer["translation"]}` },
+          { from: "bot", text: ` Interpretation ${" "} : ${" "} ${answer["interpretation"]}` }
         ]);
       } else{
         setMessages(msgs => [
