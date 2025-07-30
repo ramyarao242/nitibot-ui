@@ -35,13 +35,15 @@ const Ask: React.FC = () => {
     // Assuming the API returns { answer: "..." }
 
     if (data.answer) {
+      const stringAnswer = data.answer;
+      const answer = JSON.parse(stringAnswer);
       setMessages(msgs => [
         ...msgs,
-        { from: "bot", text: data.answer["chapter number"] },
-        { from: "bot", text: data.answer["verse number"] },
-        { from: "bot", text: data.answer["sanskrit"] },
-        { from: "bot", text: data.answer["translation"] },
-        { from: "bot", text: data.answer["interpretation"] }
+        { from: "bot", text: answer["chapter number"] },
+        { from: "bot", text: answer["verse number"] },
+        { from: "bot", text: answer["sanskrit"] },
+        { from: "bot", text: answer["translation"] },
+        { from: "bot", text: answer["interpretation"] }
       ]);
     } else{
       setMessages(msgs => [
@@ -60,14 +62,12 @@ const Ask: React.FC = () => {
   return (
     <Box
       minH="100vh"
-    
       display="flex"
       alignItems="center"
       justifyContent="center"
       py={8}
     >
       <Box
-       
         w="full"
         maxW="md"
         rounded="lg"

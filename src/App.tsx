@@ -13,13 +13,7 @@ import theme from './theme'
 import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
-  useEffect(()=>{
-    // if(window.tailwind){
-    //   window.tailwind.config={
 
-    //   }
-    // }
-  },[])
   return(
     <ChakraProvider theme={theme}>
     <Header />
