@@ -33,10 +33,22 @@ const Ask: React.FC = () => {
     const data = await response.json();
 
     // Assuming the API returns { answer: "..." }
-    setMessages(msgs => [
-      ...msgs,
-      { from: "bot", text: data.answer || "Sorry, I couldn't get an answer." }
-    ]);
+
+    if (data.answer) {
+      setMessages(msgs => [
+        ...msgs,
+        { from: "bot", text: data.answer["chapter number"] },
+        { from: "bot", text: data.answer["verse number"] },
+        { from: "bot", text: data.answer["sanskrit"] },
+        { from: "bot", text: data.answer["translation"] },
+        { from: "bot", text: data.answer["interpretation"] }
+      ]);
+    } else{
+      setMessages(msgs => [
+        ...msgs,
+        { from: "bot", text: "Sorry, I couldn't find an answer for that." }
+      ]);
+    }
   } catch (error) {
     setMessages(msgs => [
       ...msgs,

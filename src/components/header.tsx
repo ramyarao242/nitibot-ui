@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Heading, Image, Button, Flex, Text } from "@chakra-ui/react";
 import '../styles/header.css'; // Import header specific styles
+import chanakyaLogo from '../assets/chanakya-logo.png'; // Adjust the path as necessary
 
 const Header: React.FC = () => {
 
@@ -15,27 +16,35 @@ const Header: React.FC = () => {
       p={4}
     >
       <Flex align="center" justify="center" maxW="100%" mx="auto" w="full">
-        <Image
-          src="/assets/chanakya.png"
+       <Image
+          src={chanakyaLogo}
+          borderRadius="50%"
           alt="Chanakya Logo"
-          h="40px"
-          w="40px"
+          h="50px"
+          w="50px"
           mr={4}
         />
-        <Box>
-          <Heading
+        <Heading
             className="neetibot-title"
             as="h1"
             textAlign="center"
           >
             NEETIBOT
           </Heading>
-          <Text color="white" textShadow="0px 0px 10px #b48f20ff" marginBottom="20px" fontSize="md" fontWeight="light">
-            Outsmart the office. Think like Chanakya. Rise like a leader.
-          </Text>
+        <Box>
         </Box>
       </Flex>
 
+       <Box
+     
+      alignItems="center"
+      justifyContent={"center"}
+    >
+      <Text color="white" textShadow="0px 0px 10px #b48f20ff" margin="auto" fontSize="md" fontWeight="light">
+            Outsmart the office. Think like Chanakya. Rise like a leader.
+      </Text>
+      
+</Box>
       <div className="header-buttons" style={{ display: 'flex', gap: '10px', marginLeft: '40px', justifyContent: 'center' }}  >
       <Button className="transparent-btn" onClick={() => navigate("/")}><span className="material-symbols-outlined">
 home
