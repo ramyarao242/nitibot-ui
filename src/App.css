@@ -1,16 +1,20 @@
 #root {
   width: 100%;
+  height: 100%;
   background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 100%,#b97e00 100%);
+  flex-direction: column;
+  display: flex; 
+  justify-content: space-between;
 }
 
 .app-container{
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; */
+  height: 60%;
   background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 100%,#b97e00 100%);
-}
+  overflow-y: scroll;}
 
 .logo {
   height: 6em;

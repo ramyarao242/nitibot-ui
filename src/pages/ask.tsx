@@ -33,22 +33,10 @@ const Ask: React.FC = () => {
     const data = await response.json();
 
     // Assuming the API returns { answer: "..." }
-
-    if (data.answer) {
-      setMessages(msgs => [
-        ...msgs,
-        { from: "bot", text: data.answer["chapter number"] },
-        { from: "bot", text: data.answer["verse number"] },
-        { from: "bot", text: data.answer["sanskrit"] },
-        { from: "bot", text: data.answer["translation"] },
-        { from: "bot", text: data.answer["interpretation"] }
-      ]);
-    } else{
-      setMessages(msgs => [
-        ...msgs,
-        { from: "bot", text: "Sorry, I couldn't find an answer for that." }
-      ]);
-    }
+    setMessages(msgs => [
+      ...msgs,
+      { from: "bot", text: data.answer || "Sorry, I couldn't get an answer." }
+    ]);
   } catch (error) {
     setMessages(msgs => [
       ...msgs,
@@ -60,7 +48,7 @@ const Ask: React.FC = () => {
   return (
     <Box
       minH="100vh"
-    
+      w="full"
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -69,12 +57,12 @@ const Ask: React.FC = () => {
       <Box
        
         w="full"
-        maxW="md"
+        maxW="full"
         rounded="lg"
         shadow="lg"
         display="flex"
         flexDirection="column"
-        h="70vh"
+        h="100%"
       >
         <VStack flex="1" overflowY="auto" p={4} spacing={3} align="stretch">
           {messages.map((msg, idx) => (
