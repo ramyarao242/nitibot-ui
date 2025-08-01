@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 65%;
+  height: 75%;
   background: linear-gradient(to bottom, #000000 0%, #2c1a00 20%,#704b00 100%,#b97e00 100%);
   overflow-y: scroll;}
 

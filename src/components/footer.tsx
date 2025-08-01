@@ -8,7 +8,6 @@ const Footer: React.FC = () => {
       bg="background"
       textAlign="center"
       py={4}
-      mt="auto"
       boxShadow="inner"
     >
       <Text color="text" fontSize="sm">

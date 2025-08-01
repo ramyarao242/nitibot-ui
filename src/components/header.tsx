@@ -40,12 +40,12 @@ const Header: React.FC = () => {
       alignItems="center"
       justifyContent={"center"}
     >
-      <Text color="white" textShadow="0px 0px 10px #b48f20ff" margin="auto" fontSize="md" fontWeight="light">
+      <Text color="white" textShadow="0px 0px 10px #b48f20ff" marginLeft='86px' marginBottom='7px' fontSize="md" fontWeight="light">
             Think like Chanakya. Rise like a leader.
       </Text>
       
 </Box>
-      <div className="header-buttons" style={{ display: 'flex', gap: '10px', marginLeft: '40px', justifyContent: 'center' }}  >
+      <div className="header-buttons" style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}  >
       <Button className="transparent-btn" onClick={() => navigate("/")}><span className="material-symbols-outlined">
 home
 </span>Home</Button>

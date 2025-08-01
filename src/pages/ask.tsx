@@ -34,8 +34,13 @@ const Ask: React.FC = () => {
 
     // Assuming the API returns { answer: "..." }
 
+    let raw = data.answer.trim();
+    if(raw.startsWith("```")) {
+      raw= raw.replace (/^```json/, "").replace(/```$/, "").trim();
+    }
+
     if (data.answer) {
-      const answer = data.answer;
+      const answer = JSON.parse(raw);
         if(answer["chapter number"] && answer["verse number"] && answer["sanskrit"] && answer["translation"] && answer["interpretation"]) {
         setMessages(msgs => [
           ...msgs,
@@ -46,9 +51,10 @@ const Ask: React.FC = () => {
           { from: "bot", text: ` Interpretation ${" "} : ${" "} ${answer["interpretation"]}` }
         ]);
       } else{
+
         setMessages(msgs => [
           ...msgs,
-          { from: "bot", text: JSON.stringify(data.answer) }
+          { from: "bot", text: JSON.stringify(raw) }
         ]);
       }
   }
@@ -68,11 +74,10 @@ const Ask: React.FC = () => {
 
   return (
     <Box
-      minH="100vh"
+      minH="100%"
       display="flex"
       alignItems="center"
       justifyContent="center"
-      py={8}
     >
       <Box
         w="full"
@@ -81,7 +86,7 @@ const Ask: React.FC = () => {
         shadow="lg"
         display="flex"
         flexDirection="column"
-        h="70vh"
+        h="100%"
       >
         <VStack flex="1" overflowY="auto" p={4} spacing={3} align="stretch">
           {messages.map((msg, idx) => (
