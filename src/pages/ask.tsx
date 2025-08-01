@@ -5,6 +5,7 @@ import { Box, Input, Button, Text, VStack, HStack } from "@chakra-ui/react";
 const Ask: React.FC = () => {
   const location = useLocation();
   const initialQuestion = location.state?.initialQuestion as string | undefined;
+  
 
   const [messages, setMessages] = useState<{ from: "user" | "bot"; text: string }[]>(
     initialQuestion
@@ -20,7 +21,9 @@ const Ask: React.FC = () => {
 
   const handleSend = async () => {
     if (!input.trim()) return;
-    setMessages([...messages, { from: "user", text: input }]);
+    const userMessage = { from: "user", text: input.trim() };
+    const thinkingMessage = { from: "bot", text: "Thinking..." };
+    setMessages((prev) => [...prev, userMessage, thinkingMessage]);
     setInput("");
 
      try {
@@ -43,7 +46,7 @@ const Ask: React.FC = () => {
       const answer = JSON.parse(raw);
         if(answer["chapter number"] && answer["verse number"] && answer["sanskrit"] && answer["translation"] && answer["interpretation"]) {
         setMessages(msgs => [
-          ...msgs,
+          ...msgs.slice(0, -1), // Remove the thinking message
           { from: "bot", text: ` Chapter ${" "} : ${" "} ${answer["chapter number"]}` },
           { from: "bot", text: ` Verse ${" "} : ${" "} ${answer["verse number"]}` },
           { from: "bot", text: ` Sanskrit ${" "} : ${" "} ${answer["sanskrit"]}` },
@@ -53,20 +56,20 @@ const Ask: React.FC = () => {
       } else{
 
         setMessages(msgs => [
-          ...msgs,
+          ...msgs.slice(0, -1), // Remove the thinking messag
           { from: "bot", text: JSON.stringify(raw) }
         ]);
       }
   }
     else{
       setMessages(msgs => [
-        ...msgs,
+        ...msgs.slice(0, -1), // Remove the thinking message
         { from: "bot", text: "Sorry, I couldn't find an answer for that." }
       ]);
     }
   } catch (error) {
     setMessages(msgs => [
-      ...msgs,
+      ...msgs.slice(0, -1), // Remove the thinking message
       { from: "bot", text: "There was an error contacting the server." }
     ]);
   } 
@@ -88,7 +91,7 @@ const Ask: React.FC = () => {
         flexDirection="column"
         h="100%"
       >
-        <VStack flex="1" overflowY="auto" p={4} spacing={3} align="stretch">
+       <VStack flex="1" overflowY="auto" p={4} spacing={3} align="stretch">
           {messages.map((msg, idx) => (
             <HStack
               key={idx}
@@ -108,6 +111,8 @@ const Ask: React.FC = () => {
             </HStack>
           ))}
         </VStack>
+        
+        
         <HStack p={4} borderTop="1px" borderColor="gray.200" spacing={2}>
           <Input
             flex="1"
